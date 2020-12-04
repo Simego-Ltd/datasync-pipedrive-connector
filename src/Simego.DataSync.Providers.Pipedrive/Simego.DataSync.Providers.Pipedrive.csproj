@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F8E95300-1D86-4B65-BEED-9442322CAFB1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Simego.DataSync.Providers.Pipedrive</RootNamespace>
+    <AssemblyName>Simego.DataSync.Providers.Pipedrive</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Simego.DataSync, Version=3.0.1294.0, Culture=neutral, PublicKeyToken=205eb815ceeab531, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Simego\Data Synchronisation Studio 3.0\Simego.DataSync.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConnectionInterface.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ConnectionInterface.Designer.cs">
+      <DependentUpon>ConnectionInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionProperties.cs" />
+    <Compile Include="Datasources\PipedriveActivityDatasource.cs" />
+    <Compile Include="Datasources\PipedriveDatasourceFactory.cs" />
+    <Compile Include="Datasources\PipedriveDealDatasource.cs" />
+    <Compile Include="Datasources\PipedriveNoteDatasource.cs" />
+    <Compile Include="Datasources\PipedriveOrgainizationDatasource.cs" />
+    <Compile Include="Datasources\PipedrivePersonDatasource.cs" />
+    <Compile Include="Datasources\PipedrivePipelineDatasource.cs" />
+    <Compile Include="Datasources\PipedriveProductDatasource.cs" />
+    <Compile Include="Datasources\PipedriveStageDatasource.cs" />
+    <Compile Include="Datasources\PipedriveUserDatasource.cs" />
+    <Compile Include="Interfaces\IPipedriveValueParser.cs" />
+    <Compile Include="Parsers\DefaultValueParser.cs" />
+    <Compile Include="Parsers\EmailValueParser.cs" />
+    <Compile Include="Parsers\EnumValueParser.cs" />
+    <Compile Include="Parsers\OrgValueParser.cs" />
+    <Compile Include="Parsers\PeopleValueParser.cs" />
+    <Compile Include="Parsers\UserValueParser.cs" />
+    <Compile Include="PipedriveDataSchema.cs" />
+    <Compile Include="PipedriveDataSchemaItem.cs" />
+    <Compile Include="Interfaces\IPipedriveDatasourceInfo.cs" />
+    <Compile Include="PipedriveDatasourceReader.cs" />
+    <Compile Include="PipedriveDataSourceWriter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypeConverters\PipedriveListTypeConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ConnectionInterface.resx">
+      <DependentUpon>ConnectionInterface.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
